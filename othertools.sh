@@ -1,13 +1,36 @@
-#!bin/bash
+#!/bin/bash
 
-sudo apt install ncdu
-sudo apt install htop
-sudo apt install xclip
-sudo apt install nala
-sudo apt install python3 pip3
-sudo apt-get install curl
+# Stop execution on any error
+set -e
+
+# Ensure the script is run as root
+if [ "$EUID" -ne 0 ]; then
+	echo "Please run as root"
+	exit
+fi
+
+# Update package lists
+echo "Updating package lists..."
+sudo apt update
+
+# Install common utilities
+echo "Installing common utilities..."
+sudo apt install -y ncdu htop xclip nala curl gnome-tweaks gnome-shell-extensions
+
+# Install Python3 and Pip
+echo "Installing Python3 and pip..."
+sudo apt install -y python3 python3-pip
+
+# Installing speedtest from Ookla's repository
+echo "Setting up Speedtest by Ookla..."
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-sudo apt-get install speedtest
+sudo apt install -y speedtest
+
+# Note: Installation of GNOME extensions not directly available via apt
+echo "Please manually install GNOME Shell extensions via the GNOME Extensions website or GNOME Extensions app."
+
+# Final message
+echo "All requested packages and tools have been installed."
 
 # My extentions:
 # Blur My Shell
@@ -22,5 +45,3 @@ sudo apt-get install speedtest
 # Desktop Icons NG
 # Ubuntu AppIndicators
 # Ubuntu Dock
-sudo apt install gnome-tweaks
-sudo apt install gnome-shell-extensions
