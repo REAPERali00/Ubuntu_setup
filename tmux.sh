@@ -16,7 +16,7 @@ fi
 
 # Clone Tmux Config repository using HTTPS
 if [ ! -d "./Tmux_Config" ]; then
-	git clone https://github.com/REAPERali00/Tmux_Config.git
+	git clone git@github.com:REAPERali00/Tmux_Config.git
 else
 	echo "Tmux_Config directory already exists. Updating..."
 	(cd Tmux_Config && git pull)
