@@ -30,4 +30,4 @@ echo "Tmux configuration copied."
 rm -rf Tmux_Config
 
 # Inform the user to source the tmux configuration manually
-echo "Please start a tmux session and run 'tmux source ~/.tmux.conf' to apply the configuration."
+echo "Please start a tmux session and run 'tmux source ~/.tmux.conf' to apply the configuration. To install plugins, use <C-s> + I"
